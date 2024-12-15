@@ -1,0 +1,58 @@
+public class Coupon {
+    private String couponNumber;
+    private double total;
+
+    // Default constructor
+    public Coupon() {}
+
+    // Parameterized constructor
+    public Coupon(String _couponNumber, double _total) {
+        this.couponNumber = _couponNumber;
+        this.total = _total;
+    }
+
+    // Getter and Setter for couponNumber
+    public String getCouponNumber() {
+        return couponNumber;
+    }
+
+    public void setCouponNumber(String couponNumber) {
+        this.couponNumber = couponNumber;
+    }
+
+    // Getter and Setter for total
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    // Method to process the coupon and apply discounts
+    public void CouponProcessing() {
+        // Checking if coupon belongs to the 50% discount category
+        if (couponNumber.equals("GoldenCoupon") || couponNumber.equals("StarCoupon") ||
+            couponNumber.equals("Coupon50") || couponNumber.equals("LuckyCoupon")) {
+            double discount = total * 0.50;
+            double remainingAmount = total - discount;
+            System.out.println("Congrats!! You got 50% discount on your total amount.");
+            System.out.println("Remaining amount you have to pay is " + remainingAmount);
+        }
+        // Checking if coupon belongs to the 25% discount category
+        else if (couponNumber.equals("SilverCoupon") || couponNumber.equals("Coupon25") ||
+                 couponNumber.equals("Lucky25") || couponNumber.equals("Star25")) {
+            double discount = total * 0.25;
+            double remainingAmount = total - discount;
+            System.out.println("Congrats!! You got 25% discount on your total amount.");
+            System.out.println("Remaining amount you have to pay is " + remainingAmount);
+        }
+        // Case when no valid coupon is provided
+        else {
+            System.out.println("Sorry!! seems you don't have any coupon..");
+            System.out.println("Total amount you have to pay is " + total);
+        }
+    }
+}
+
+
